@@ -1,10 +1,10 @@
 <mat-card>
-    <b><span>View Bill</span></b>
+    <b><span>Voir Factures</span></b>
 </mat-card>
 <hr>
 <mat-card>
     <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
+        <mat-label>Filtre</mat-label>
         <input matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
 </mat-card>
@@ -13,7 +13,7 @@
 <div class="responsive_table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
             <td mat-cell *matCellDef="let element">{{element.name}}</td>
         </ng-container>    
         <ng-container matColumnDef="email">
@@ -21,11 +21,11 @@
             <td mat-cell *matCellDef="let element">{{element.email}}</td>
         </ng-container>  
         <ng-container matColumnDef="contactNumber">
-            <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+            <th mat-header-cell *matHeaderCellDef>Numéros de contact</th>
             <td mat-cell *matCellDef="let element">{{element.contactNumber}}</td>
         </ng-container>
         <ng-container matColumnDef="paymentMethod">
-            <th mat-header-cell *matHeaderCellDef>Payment method</th>
+            <th mat-header-cell *matHeaderCellDef>method de Payment</th>
             <td mat-cell *matCellDef="let element">{{element.paymentMethod}}</td>
         </ng-container>
         <ng-container matColumnDef="total">

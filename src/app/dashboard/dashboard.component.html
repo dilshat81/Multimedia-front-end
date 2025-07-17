@@ -1,15 +1,15 @@
 <body>
     <mat-card>
-        <b><span>Dashboard</span></b>
+        <b><span>Tableau de bord</span></b>
     </mat-card>
     <br>
     <div class="row">
         <div class="column">
             <div class="card">
                 <div class="container">
-                    <h2 class="title">Total Category</h2>
+                    <h2 class="title">Categories</h2>
                     <h1 class="title">{{ data?.category }}</h1> 
-                    <p><button class="button" [routerLink]="['/multimedia/category']">View Category</button></p>
+                    <p><button class="button" [routerLink]="['/multimedia/category']">Voir la catégorie</button></p>
                 </div>
             </div>
         </div>
@@ -17,9 +17,9 @@
         <div class="column">
             <div class="card">
                 <div class="container">
-                    <h2 class="title">Total Product</h2>
+                    <h2 class="title">Produits</h2>
                     <h1 class="title">{{ data?.product }}</h1> 
-                    <p><button class="button" [routerLink]="['/multimedia/product']">View Product</button></p>
+                    <p><button class="button" [routerLink]="['/multimedia/product']">Voir le produit</button></p>
                 </div>
             </div>
         </div>
@@ -27,9 +27,9 @@
         <div class="column">
             <div class="card">
                 <div class="container">
-                    <h2 class="title">Total bill</h2>
+                    <h2 class="title">Factures </h2>
                     <h1 class="title">{{ data?.bill }}</h1> 
-                    <p><button class="button" [routerLink]="['/multimedia/bill']">View Bill</button></p>
+                    <p><button class="button" [routerLink]="['/multimedia/bill']">Voir Factures</button></p>
                 </div>
             </div>
         </div>

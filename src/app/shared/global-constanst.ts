@@ -1,6 +1,6 @@
 export class GlobalConstants{
 
-    //Message
+    //Messages
     public static genericError: string = "Something went wrong. Please try again later";
 
     public static unauthroized: string = "You are not authorized person to acces this page";

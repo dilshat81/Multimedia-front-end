@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row fxLayout="row">
-        <span>Signup</span>
+        <span>S'inscrire</span>
         <span class="spacer"></span>
         <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
@@ -12,20 +12,20 @@
     <form [formGroup]="signupForm">
         <div fxFlex fxLayout="column">
             <mat-form-field appearance="standard" fxFlex>
-                <mat-label>Name</mat-label>
+                <mat-label>Nom</mat-label>
                 <input matInput formControlName="name" required>
                 <mat-error *ngIf="signupForm.controls.name.touched && signupForm.controls.name.invalid">
-                    <span *ngIf="signupForm.controls.name.errors.required">This field is mandatory</span>
-                    <span *ngIf="signupForm.controls.name.errors.pattern">This field is invalid</span>
+                    <span *ngIf="signupForm.controls.name.errors.required">Champ obligatoire</span>
+                    <span *ngIf="signupForm.controls.name.errors.pattern">Champ invalide</span>
                 </mat-error>                   
             </mat-form-field>
 
             <mat-form-field appearance="standard" fxFlex>
-                <mat-label>Contact Number</mat-label>
+                <mat-label>Numéros de contacte</mat-label>
                 <input matInput formControlName="contactNumber" required>
                 <mat-error *ngIf="signupForm.controls.contactNumber.touched && signupForm.controls.contactNumber.invalid">
-                    <span *ngIf="signupForm.controls.contactNumber.errors.required">This field is mandatory</span>
-                    <span *ngIf="signupForm.controls.contactNumber.errors.pattern">This field is invalid</span>
+                    <span *ngIf="signupForm.controls.contactNumber.errors.required">Champ obligatoire</span>
+                    <span *ngIf="signupForm.controls.contactNumber.errors.pattern">Champ invalide</span>
                 </mat-error>                   
             </mat-form-field>
 
@@ -33,33 +33,45 @@
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" required>
                 <mat-error *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid">
-                    <span *ngIf="signupForm.controls.email.errors.required">This field is mandatory</span>
-                    <span *ngIf="signupForm.controls.email.errors.pattern">This field is invalid</span>
+                    <span *ngIf="signupForm.controls.email.errors.required">Champ obligatoire</span>
+                    <span *ngIf="signupForm.controls.email.errors.pattern">Champ invalide</span>
                 </mat-error>                   
             </mat-form-field>
 
             <mat-form-field appearance="standard" fxFlex>
-                <mat-label>Password</mat-label>
+                <mat-label>Mot de passe</mat-label>
                 <input matInput formControlName="password" type="password" required [type]="password ? 'password' : 'text'">
                 <button type="button" mat-icon-button matSuffix (click)="password=!password" [attr.arial-label]="'Hide password'" >
                     <mat-icon>{{ password ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
                 <mat-error *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">
-                    <span *ngIf="signupForm.controls.password.errors.required">This field is mandatory</span>
-                </mat-error>                   
+                    <span *ngIf="signupForm.controls.password.errors.required">Champ obligatoire</span>
+                </mat-error> 
+                <mat-error *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].invalid">
+                    <!-- Erreur : Champ obligatoire -->
+                    <span *ngIf="signupForm.controls['password'].errors?.['required']">Champ obligatoire</span>
+                    <!-- Erreur : Longueur minimale -->
+                    <span *ngIf="signupForm.controls['password'].errors?.['minlength']">
+                      Le mot de passe doit contenir au moins 8 caractères.
+                    </span>
+                    <!-- Erreur : Mot de passe non conforme -->
+                    <span *ngIf="signupForm.controls['password'].errors?.['pattern']">
+                      Le mot de passe doit contenir une majuscule, une minuscule, un chiffre, et un caractère spécial.
+                    </span>
+                  </mat-error>                  
             </mat-form-field>
 
             <mat-form-field appearance="standard" fxFlex>
-                <mat-label>Confirm password</mat-label>
+                <mat-label>Confirmé le mot de passe</mat-label>
                 <input matInput formControlName="confirmPassword" type="password" required [type]="confirmPassword ? 'password' : 'text'">
                 <button type="button" mat-icon-button matSuffix (click)="confirmPassword = !confirmPassword" [attr.arial-label]="'Hide password'" [attr.aria-pressed]="password">
                     <mat-icon>{{ confirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
                 <mat-error *ngIf="signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.invalid">
-                    <span *ngIf="signupForm.controls.confirmPassword.errors.required">This field is mandatory</span>
+                    <span *ngIf="signupForm.controls.confirmPassword.errors.required">Champ obligatoire</span>
                 </mat-error>  
                 <mat-hint *ngIf="validateSubmit() && !(signupForm.controls.confirmPassword.invalid)">
-                    <span>New Password & confirm Password does not match</span>
+                    <span>Nouveau mot de passe et confirmation Le mot de passe ne correspond pas</span>
                 </mat-hint>                 
             </mat-form-field>
         </div>
@@ -68,8 +80,8 @@
 
 <mat-dialog-actions align="end">
     <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="validateSubmit() || !(signupForm.valid && signupForm.dirty)">
-        <mat-icon>save</mat-icon> Signup
+        <mat-icon>save</mat-icon> S'inscrire
     </button>
-    <button mat-raised-button color="warn" mat-dialog-close><mat-icon>cancel</mat-icon>Close</button>
+    <button mat-raised-button color="warn" mat-dialog-close><mat-icon>cancel</mat-icon>Fermer</button>
 
 </mat-dialog-actions>
