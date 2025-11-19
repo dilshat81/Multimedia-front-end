@@ -19,7 +19,7 @@ export class CategoryService {
   }
 
   update(data:any){
-    return  this.httpClient.post(this.url + 
+    return  this.httpClient.put(this.url + 
       "/category/update", data, {
         headers: new HttpHeaders().set('Content-type', "application/json")
       })
